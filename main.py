@@ -110,3 +110,9 @@ langs = [
     'yi',
     'yo',
     'zu']
+initial = gs.translate(start, r.choice(langs))
+for i in range(10):
+    initial = gs.translate(initial, r.choice(langs))
+    print(initial)
+final = gs.translate(initial, 'en')
+print(final)
