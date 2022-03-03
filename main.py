@@ -1,5 +1,6 @@
 from deep_translator import GoogleTranslator
 import random as r
+import os
 proxies_example = {
     "http": "5.202.191.226:8080",
     "http": "140.246.224.68:8888",
@@ -7,6 +8,7 @@ proxies_example = {
     "http": "88.255.102.98:8080"
 }
 start = input("What string of ENGLISH text would you like to start with? ")
+iter = input("How many iterations do you want? ")
 langs = [
     'af',
     'sq',
@@ -112,9 +114,14 @@ langs = [
     'yi',
     'yo',
     'zu']
+def text_refresh(text, lang, j):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"      Text: "+text)
 initial =  GoogleTranslator(source='auto', target=r.choice(langs), proxies=proxies_example).translate(start)
-for i in range(100):
-    initial =  GoogleTranslator(source='auto', target=r.choice(langs), proxies=proxies_example).translate(initial)
-    print(initial)
+for i in range(int(iter)):
+    randlang = r.choice(langs)
+    initial =  GoogleTranslator(source='auto', target=randlang, proxies=proxies_example).translate(initial)
+    text_refresh(initial, randlang, i)
 final = GoogleTranslator(source='auto', target='en', proxies=proxies_example).translate(initial)
-print(final)
+os.system('cls' if os.name == 'nt' else 'clear')
+print("Final Text: "+final)
