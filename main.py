@@ -1,6 +1,11 @@
-import goslate
+from deep_translator import GoogleTranslator
 import random as r
-gs = goslate.Goslate()
+proxies_example = {
+    "http": "5.202.191.226:8080",
+    "http": "140.246.224.68:8888",
+    'http': "62.201.214.146:8080",
+    "http": "88.255.102.98:8080"
+}
 start = input("What string of ENGLISH text would you like to start with? ")
 langs = [
     'af',
@@ -17,8 +22,6 @@ langs = [
     'ca',
     'ceb',
     'ny',
-    'zh-cn',
-    'zh-tw',
     'co',
     'hr',
     'cs',
@@ -40,7 +43,6 @@ langs = [
     'ha',
     'haw',
     'iw',
-    'he',
     'hi',
     'hmn',
     'hu',
@@ -110,9 +112,9 @@ langs = [
     'yi',
     'yo',
     'zu']
-initial = gs.translate(start, r.choice(langs))
-for i in range(10):
-    initial = gs.translate(initial, r.choice(langs))
+initial =  GoogleTranslator(source='auto', target=r.choice(langs), proxies=proxies_example).translate(start)
+for i in range(100):
+    initial =  GoogleTranslator(source='auto', target=r.choice(langs), proxies=proxies_example).translate(initial)
     print(initial)
-final = gs.translate(initial, 'en')
+final = GoogleTranslator(source='auto', target='en', proxies=proxies_example).translate(initial)
 print(final)
