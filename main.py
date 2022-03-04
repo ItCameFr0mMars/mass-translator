@@ -2,9 +2,26 @@ from deep_translator import GoogleTranslator
 import random as r
 import os
 import json
+from termcolor import colored, cprint
 proxies = {
     "http": "5.202.191.226:8080" #only http and https are supported rn. 
 }
+os.system("cls" if os.name == "nt" else "clear")
+cprint(""" 
+ /$$      /$$                                       /$$$$$$$$                                         /$$             /$$                        
+| $$$    /$$$                                      |__  $$__/                                        | $$            | $$                        
+| $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$$           | $$     /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+| $$ $$/$$ $$ |____  $$ /$$_____/ /$$_____/           | $$    /$$__  $$ |____  $$| $$__  $$ /$$_____/| $$ |____  $$|_  $$_/   /$$__  $$ /$$__  $$
+| $$  $$$| $$  /$$$$$$$|  $$$$$$ |  $$$$$$            | $$   | $$  \__/  /$$$$$$$| $$  \ $$|  $$$$$$ | $$  /$$$$$$$  | $$    | $$  \ $$| $$  \__/
+| $$\  $ | $$ /$$__  $$ \____  $$ \____  $$           | $$   | $$       /$$__  $$| $$  | $$ \____  $$| $$ /$$__  $$  | $$ /$$| $$  | $$| $$      
+| $$ \/  | $$|  $$$$$$$ /$$$$$$$/ /$$$$$$$/           | $$   | $$      |  $$$$$$$| $$  | $$ /$$$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
+|__/     |__/ \_______/|_______/ |_______/  /$$$$$$   |__/   |__/       \_______/|__/  |__/|_______/ |__/ \_______/   \___/   \______/ |__/      
+                                           |______/                                                                                              
+                                                                                                                                                 
+                                                                                                                                                             
+                                                                                                                         
+Made By ItCameFr0mMars                                                                                                                          
+""", 'blue')
 start = input("What string of ENGLISH text would you like to start with? ")
 iter = input("How many iterations do you want? ")
 eng_updates = input("Would you like to see the english text as it is being translated? (y/N) ").upper()

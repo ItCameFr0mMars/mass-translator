@@ -21,17 +21,18 @@ Input the number of Iterations the text will be fed through. You will need fewer
 You will be able to see the language used, number of iterations so far, and text.
 
 
-~~**TODO:** Show English text here~~
-
 
 ## Planned Features
-~~English text shown whilst translating, so you can see how the text is changing~~ Completed, although it is slower
 
-~~Language Groups - Only use a few select languages~~ Added, follow the templates in __lang_groups.json__
+More Base langage groups
 
-Colors? Bit annoying, idk if I will add it
 
-~~Import proxies from file~~ I don't think the program even supports multiple proxies
+Logo Displayed on program start
+
+
+Better Input handling
+
+
 
 
 
