@@ -116,13 +116,13 @@ base_langs = [
     "zh-CN",
     "zh-TW",
     "zu"]
-with open('lang_groups.txt') as f: #load from text file
+with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
 use_lang_groups = input("Would you like to use Language Groups? (y/N) ").upper()
 if use_lang_groups == "Y":
     lang_group_number = input("What Language Group? ")
-    confirm_lang_group = input("Language Group "+lang_group_number+", Description: "+str(lang_groups["1"]["desc"])+" (Y/n) ").upper()
+    confirm_lang_group = input("Language Group "+lang_group_number+", Description: "+str(lang_groups[lang_group_number]["desc"])+" (Y/n) ").upper()
     if not confirm_lang_group == "N":
         langs = lang_groups[lang_group_number]["lang_list"] # use the langage group
 else:

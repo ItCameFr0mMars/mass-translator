@@ -13,5 +13,11 @@
       "pa"
     ],
     "desc": "10 Most Spoken Languages"
+  },
+  "2": {
+    "lang_list": [
+      "bn", "zh-CN", "zh-TW", "tl", "gu", "hi", "hm", "km", "lo", "mg", "ms", "ml", "mr", "my", "ps", "pa", "si", "th", "vi"
+    ],
+    "desc": "South Asian Languages"
   }
 }
