@@ -27,11 +27,11 @@ You will be able to see the language used, number of iterations so far, and text
 ## Planned Features
 ~~English text shown whilst translating, so you can see how the text is changing~~ Completed, although it is slower
 
-Language Groups - Only use a few select languages 
+~~Language Groups - Only use a few select languages~~ Added, follow the templates in __lang_groups.json__
 
-Colors? Bit annoying, idk
+Colors? Bit annoying, idk if I will add it
 
-Import proxies from file
+~~Import proxies from file~~ I don't think the program even supports multiple proxies
 
 
 
