@@ -21,7 +21,7 @@ Input the number of Iterations the text will be fed through. You will need fewer
 You will be able to see the language used, number of iterations so far, and text.
 
 
-**TODO:** Show English text here
+~~**TODO:** Show English text here~~
 
 
 ## Planned Features
