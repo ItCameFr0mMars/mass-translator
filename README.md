@@ -25,7 +25,7 @@ You will be able to see the language used, number of iterations so far, and text
 
 
 ## Planned Features
-English text shown whilst translating, so you can see how the text is changing
+~~English text shown whilst translating, so you can see how the text is changing~~ Completed, although it is slower
 
 Language Groups - Only use a few select languages 
 

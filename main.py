@@ -9,6 +9,7 @@ proxies_example = {
 }
 start = input("What string of ENGLISH text would you like to start with? ")
 iter = input("How many iterations do you want? ")
+eng_updates = input("Would you like to see the english text as it is being translated? (y/N) ").upper()
 langs = [
     'af',
     'sq',
@@ -116,7 +117,11 @@ langs = [
     'zu']
 def text_refresh(text, lang, j):
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"      Text: "+text)
+    if eng_updates =='Y':
+        eng = GoogleTranslator(source='auto', target='en', proxies=proxies_example).translate(text)
+        print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+'/'+iter+"      Text: "+eng)
+    else:
+        print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+'/'+iter+"      Text: "+text)
 initial =  GoogleTranslator(source='auto', target=r.choice(langs), proxies=proxies_example).translate(start)
 for i in range(int(iter)):
     randlang = r.choice(langs)
