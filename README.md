@@ -36,4 +36,4 @@ Import proxies from file
 
 
 ## Contributing
-Please open a issue or pull request!
+Please open an issue or pull request!
