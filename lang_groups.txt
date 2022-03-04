@@ -1,0 +1,17 @@
+{
+  "1": {
+    "lang_list": [
+      "zh-CN",
+      "es",
+      "en",
+      "hi",
+      "ar",
+      "pt",
+      "bn",
+      "ru",
+      "ja",
+      "pa"
+    ],
+    "desc": "10 Most Spoken Languages"
+  }
+}
