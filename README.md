@@ -6,7 +6,7 @@ Input english text, then translate it between languages *n* times using the [Dee
 
 ## How to Use
 Install dependencies
-`pip install -r pip.req`
+`pip install -r requirements.txt`
 
 
 OPTIONAL: Get http(s) proxies, and fill them into the list in main.py
