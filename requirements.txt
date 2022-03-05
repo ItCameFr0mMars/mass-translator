@@ -1,1 +1,1 @@
-goslate
+deep_translator
