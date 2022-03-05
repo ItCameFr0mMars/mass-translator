@@ -2,12 +2,19 @@ from deep_translator import GoogleTranslator
 import random as r
 import os
 import json
+import time
 from termcolor import colored, cprint
 proxies = {
     "http": "5.202.191.226:8080" #only http and https are supported rn. 
 }
+color = r.choice(['red', 'green', 'yellow', 'blue', 'magenta', 'cyan'])
+attrs = ['bold', 'blink', 'reverse']
+rand_attr = []
+rand_attr.append(r.choice(attrs))
 os.system("cls" if os.name == "nt" else "clear")
-cprint(""" 
+cprint("""
+
+
  /$$      /$$                                       /$$$$$$$$                                         /$$             /$$                        
 | $$$    /$$$                                      |__  $$__/                                        | $$            | $$                        
 | $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$$           | $$     /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
@@ -17,14 +24,19 @@ cprint("""
 | $$ \/  | $$|  $$$$$$$ /$$$$$$$/ /$$$$$$$/           | $$   | $$      |  $$$$$$$| $$  | $$ /$$$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
 |__/     |__/ \_______/|_______/ |_______/  /$$$$$$   |__/   |__/       \_______/|__/  |__/|_______/ |__/ \_______/   \___/   \______/ |__/      
                                            |______/                                                                                              
-                                                                                                                                                 
-                                                                                                                                                             
-                                                                                                                         
-Made By ItCameFr0mMars                                                                                                                          
-""", 'blue')
+\r
+\r
+Made By ItCameFr0mMars
+""", ""+color+"", attrs=rand_attr)
+time.sleep(2)
+input("Press enter to continue ")
+os.system("cls" if os.name == "nt" else "clear")
 start = input("What string of ENGLISH text would you like to start with? ")
+os.system("cls" if os.name == "nt" else "clear")
 iter = input("How many iterations do you want? ")
+os.system("cls" if os.name == "nt" else "clear")
 eng_updates = input("Would you like to see the english text as it is being translated? (y/N) ").upper()
+os.system("cls" if os.name == "nt" else "clear")
 langs = []
 base_langs = [
     "af",
@@ -137,9 +149,12 @@ with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
 use_lang_groups = input("Would you like to use Language Groups? (y/N) ").upper()
+os.system("cls" if os.name == "nt" else "clear")
 if use_lang_groups == "Y":
     lang_group_number = input("What Language Group? ")
+    os.system("cls" if os.name == "nt" else "clear")
     confirm_lang_group = input("Language Group "+lang_group_number+", Description: "+str(lang_groups[lang_group_number]["desc"])+" (Y/n) ").upper()
+    os.system("cls" if os.name == "nt" else "clear")
     if not confirm_lang_group == "N":
         langs = lang_groups[lang_group_number]["lang_list"] # use the langage group
 else:
