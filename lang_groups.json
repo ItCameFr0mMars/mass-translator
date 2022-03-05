@@ -1,16 +1,7 @@
 {
   "1": {
     "lang_list": [
-      "zh-CN",
-      "es",
-      "en",
-      "hi",
-      "ar",
-      "pt",
-      "bn",
-      "ru",
-      "ja",
-      "pa"
+      "zh-CN", "es", "en", "hi", "ar", "pt", "bn", "ru", "ja", "pa"
     ],
     "desc": "10 Most Spoken Languages"
   },
@@ -19,5 +10,17 @@
       "bn", "zh-CN", "zh-TW", "tl", "gu", "hi", "hm", "km", "lo", "mg", "ms", "ml", "mr", "my", "ps", "pa", "si", "th", "vi"
     ],
     "desc": "South Asian Languages"
+  },
+  "3": {
+    "lang_list": [
+      "ar", "zh-TW", "ja", "hu", "ko", "fi", "eu", "is", "pl", "ru", "tr"
+    ],
+    "desc": "Complex Languages"
+  },
+  "4": {
+    "lang_list": [
+      "zh-TW", "ja", "th", "hu", "ar", "ko", "fi", "ru", "mn", "pl"
+    ],
+    "desc": "Hardest Languages to Translate"
   }
 }
