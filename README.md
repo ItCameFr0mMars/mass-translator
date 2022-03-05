@@ -24,16 +24,10 @@ You will be able to see the language used, number of iterations so far, and text
 
 ## Planned Features
 
-More Base langage groups
+Multi-Proxy Support
 
 
-Logo Displayed on program start
-
-
-Better Input handling
-
-
-
+Add your own Language Groups
 
 
 ## Contributing
