@@ -7,14 +7,14 @@ from termcolor import colored, cprint
 proxies = {
     "http": "5.202.191.226:8080" #only http and https are supported rn. 
 }
-color = r.choice(['red', 'green', 'yellow', 'blue', 'magenta', 'cyan'])
-attrs = ['bold', 'blink', 'reverse']
-rand_attr = []
-rand_attr.append(r.choice(attrs))
-os.system("cls" if os.name == "nt" else "clear")
-cprint("""
-
-
+color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
+r.shuffle(color)
+for i in range(len(color)):
+    os.system("cls" if os.name == "nt" else "clear")
+    cprint(
+"""
+\r
+\r
  /$$      /$$                                       /$$$$$$$$                                         /$$             /$$                        
 | $$$    /$$$                                      |__  $$__/                                        | $$            | $$                        
 | $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$$           | $$     /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
@@ -23,19 +23,24 @@ cprint("""
 | $$\  $ | $$ /$$__  $$ \____  $$ \____  $$           | $$   | $$       /$$__  $$| $$  | $$ \____  $$| $$ /$$__  $$  | $$ /$$| $$  | $$| $$      
 | $$ \/  | $$|  $$$$$$$ /$$$$$$$/ /$$$$$$$/           | $$   | $$      |  $$$$$$$| $$  | $$ /$$$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
 |__/     |__/ \_______/|_______/ |_______/  /$$$$$$   |__/   |__/       \_______/|__/  |__/|_______/ |__/ \_______/   \___/   \______/ |__/      
-                                           |______/                                                                                              
+                                        |______/                                                                                              
 \r
 \r
 Made By ItCameFr0mMars
-""", ""+color+"", attrs=rand_attr)
-time.sleep(2)
-input("Press enter to continue ")
+""", ""+color[i]+"")
+    time.sleep(0.5)
+    fincolor = color[i]
+cprint("Press Enter to Continue", fincolor) 
+input("")
 os.system("cls" if os.name == "nt" else "clear")
-start = input("What string of ENGLISH text would you like to start with? ")
+cprint("What string of ENGLISH text would you like to start with?", fincolor)
+start = input("")
 os.system("cls" if os.name == "nt" else "clear")
-iter = input("How many iterations do you want? ")
+cprint("How many iterations do you want?", fincolor)
+iter = input("")
 os.system("cls" if os.name == "nt" else "clear")
-eng_updates = input("Would you like to see the english text as it is being translated? (y/N) ").upper()
+cprint("Would you like to see the english text as it is being translated? (y/N)", fincolor)
+eng_updates = input("").upper()
 os.system("cls" if os.name == "nt" else "clear")
 langs = []
 base_langs = [
@@ -148,12 +153,15 @@ base_langs = [
 with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
-use_lang_groups = input("Would you like to use Language Groups? (y/N) ").upper()
+cprint("Would you like to use Language Groups? (y/N) ", fincolor)
+use_lang_groups = input("").upper()
 os.system("cls" if os.name == "nt" else "clear")
 if use_lang_groups == "Y":
-    lang_group_number = input("What Language Group? ")
+    cprint("What Language Group? ", fincolor)
+    lang_group_number = input("")
     os.system("cls" if os.name == "nt" else "clear")
-    confirm_lang_group = input("Language Group "+lang_group_number+", Description: "+str(lang_groups[lang_group_number]["desc"])+" (Y/n) ").upper()
+    cprint("Language Group "+lang_group_number+", Description: "+str(lang_groups[lang_group_number]["desc"])+" (Y/n) ", fincolor)
+    confirm_lang_group = input("").upper()
     os.system("cls" if os.name == "nt" else "clear")
     if not confirm_lang_group == "N":
         langs = lang_groups[lang_group_number]["lang_list"] # use the langage group
