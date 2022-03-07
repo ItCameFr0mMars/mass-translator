@@ -9,7 +9,7 @@ Install dependencies
 `pip install -r requirements.txt`
 
 
-OPTIONAL: Get http(s) proxies, and fill them into the list in main.py
+OPTIONAL: Get http(s) proxies, and add one to the list in `main.py`
 
 
 Paste/Type your text when prompted. **All text must be in a single line. Text with line breaks will not work**
@@ -24,11 +24,19 @@ You will be able to see the language used, number of iterations so far, and text
 
 ## Planned Features
 
-Multi-Proxy Support
+Some sort of settings/config page?
 
 
-Add your own Language Groups
+Import text from files
 
+
+Proxies are kinda unessicary, but I might add them
+
+
+Pyperclip
+
+
+Export text
 
 ## Contributing
 Please open an issue or pull request!
