@@ -6,10 +6,10 @@ import time
 from termcolor import colored, cprint
 import requests
 
-def clear():
+def clear(): #clear screen funtion
     os.system("cls" if os.name == "nt" else "clear")
 proxies = {
-    "http": "5.202.191.226:8080" #only http and https are supported rn. 
+    "http": "5.202.191.226:8080" #only http and https
 }
 base_langs = [
     "af",
@@ -121,7 +121,7 @@ base_langs = [
     "yi",
     "yo",
     "zu"]
-color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
+color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan'] #show colors on startup
 r.shuffle(color)
 for i in range(len(color)):
     clear()
@@ -143,7 +143,7 @@ for i in range(len(color)):
 Made By ItCameFr0mMars
 """, ""+color[i]+"")
     time.sleep(0.5)
-    fincolor = color[i]
+    fincolor = color[i] #save the last used color for the theme
 cprint("Type \"H\" for help, enter your command, or Press Enter to Continue", fincolor) 
 menu = input("").upper()
 if menu == "I":
@@ -165,7 +165,7 @@ elif menu == "C":
     cprint("Warning, you must know the letter codes for each language, they can be found in the supported_languages.json file.", fincolor)
     print("\r")
     clear()
-    with open("lang_groups.json") as fil:
+    with open("lang_groups.json") as fil: #open file and put the json into a python dict
         data = fil.read()
     check = json.loads(data)
     addedlangs = []
@@ -174,25 +174,25 @@ elif menu == "C":
         langcheck = input("")
         clear()
         proceed = True
-        if langcheck == "done":
+        if langcheck == "done": #break the loop if user is done
             break
-        if langcheck not in base_langs:
-            cprint("its not in the list bro.", fincolor)
+        if langcheck not in base_langs: #if the inputted lang is not in the supported list
+            cprint("its not in the list bro.", fincolor) 
             time.sleep(1)
             clear()
             proceed = False
-        if proceed == True and langcheck in addedlangs:
+        if proceed == True and langcheck in addedlangs: #no dupelacates, MAYBE THIS COULD BE A FEATURE IN THE FUTURE
             cprint("Your language is already in the list", fincolor)
             time.sleep(1)
             clear()
             proceed = False
-        addedlangs.append(langcheck)
-    cprint("What description would you like to set for this Language Group?", fincolor)           
+        addedlangs.append(langcheck) #append the added languages
+    cprint("What description would you like to set for this Language Group?", fincolor) #set description          
     desc = input("")
-    out_dict = {"lang_list": addedlangs, "desc": desc}
-    check["groups"].append(out_dict)
+    out_dict = {"lang_list": addedlangs, "desc": desc} #assemble the dict
+    check["groups"].append(out_dict) #append to the dict
     fil = open("lang_groups.json", "w")
-    json.dump(check, fil)
+    json.dump(check, fil) #Convert the dict back into json and save to the file
     fil.close()
     clear()
     cprint("Successfully added your language group!", fincolor)
@@ -203,28 +203,28 @@ elif menu == "C":
 clear()
 cprint("What string of ENGLISH text would you like to start with?", fincolor)
 start = input("")
-if start == "godsays":
+if start == "godsays": #get the text from funny website
     t = requests.get("https://godsays.xyz")
     start = t.text
 clear()
 cprint("How many iterations do you want?", fincolor)
 iter = input("")
 clear()
-cprint("Would you like to see the english text as it is being translated? (y/N)", fincolor)
+cprint("Would you like to see the english text as it is being translated? Warning: Slower. (y/N)", fincolor) #preview option
 eng_updates = input("").upper()
 clear()
 langs = []
 with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
-cprint("Would you like to use Language Groups? (y/N) ", fincolor)
+cprint("Would you like to use Language Groups? (y/N) ", fincolor) #language groups option
 use_lang_groups = input("").upper()
 clear()
 if use_lang_groups == "Y":
-    cprint("What Language Group? ", fincolor)
+    cprint("What Language Group? ", fincolor) 
     lang_group_number = input("")
     clear()
-    cprint("Language Group "+lang_group_number+", Description: "+lang_groups["groups"][(int(lang_group_number)-1)]["desc"]+" (Y/n) ", fincolor)
+    cprint("Language Group "+lang_group_number+", Description: "+lang_groups["groups"][(int(lang_group_number)-1)]["desc"]+" (Y/n) ", fincolor) #confirm the group
     confirm_lang_group = input("").upper()
     clear()
     if not confirm_lang_group == "N":
