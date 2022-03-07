@@ -4,6 +4,7 @@ import os
 import json
 import time
 from termcolor import colored, cprint
+import requests
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -119,7 +120,7 @@ base_langs = [
     "xh",
     "yi",
     "yo",
-    "zu"
+    "zu"]
 color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
 r.shuffle(color)
 for i in range(len(color)):
@@ -202,6 +203,9 @@ elif menu == "C":
 clear()
 cprint("What string of ENGLISH text would you like to start with?", fincolor)
 start = input("")
+if start == "godsays":
+    t = requests.get("https://godsays.xyz")
+    start = t.text
 clear()
 cprint("How many iterations do you want?", fincolor)
 iter = input("")
