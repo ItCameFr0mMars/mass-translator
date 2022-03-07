@@ -3,7 +3,10 @@ import random as r
 import os
 import json
 import time
-from termcolor import colored, cprint
+from termcolor import colored, cprint\
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
 proxies = {
     "http": "5.202.191.226:8080" #only http and https are supported rn. 
 }
@@ -117,7 +120,7 @@ base_langs = [
 color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
 r.shuffle(color)
 for i in range(len(color)):
-    os.system("cls" if os.name == "nt" else "clear")
+    clear()
     cprint(
 """
 \r
@@ -140,86 +143,94 @@ Made By ItCameFr0mMars
 cprint("Type \"H\" for help, enter your command, or Press Enter to Continue", fincolor) 
 menu = input("").upper()
 if menu == "I":
+    clear()
     cprint("""
 This project was made by ItCameFr0mMars. If you have any questions, email me (mars@mars.tk), or DM me on discord (ItCameFr0mMars#6559). 
 I would appreciate it if you star the repo, and any suggestions can be made on a github issue, or pull request.
 """, fincolor)
+    input("")
 elif menu == "H":
+    clear()
     cprint("""
 H: Shows this.
 I: Info screen
 C: Create your own Language group
 """, fincolor)
+    input("")
 elif menu == "C":
     cprint("Warning, you must know the letter codes for each language, they can be found in the supported_languages.json file.", fincolor)
     print("\r")
-    os.system("cls" if os.name == "nt" else "clear")
+    clear()
     with open("lang_groups.json") as fil:
         data = fil.read()
     check = json.loads(data)
-    for i in range(1000):
-        try:
-            balls = data[str(i)]["desc"]
-        except:
-            group_name = i + 1
-            break
     addedlangs = []
     while True:
         cprint("What language would you like to add? Type \"done\" when you are finished", fincolor)
         langcheck = input("")
-        os.system("cls" if os.name == "nt" else "clear")
+        clear()
         proceed = True
         if langcheck == "done":
             break
         if langcheck not in base_langs:
             cprint("its not in the list bro.", fincolor)
             time.sleep(1)
-            os.system("cls" if os.name == "nt" else "clear")
+            clear()
             proceed = False
         if proceed == True and langcheck in addedlangs:
             cprint("Your language is already in the list", fincolor)
             time.sleep(1)
-            os.system("cls" if os.name == "nt" else "clear")
+            clear()
             proceed = False
         addedlangs.append(langcheck)
-    cprint(addedlangs, fincolor)           
+    cprint("What description would you like to set for this Language Group?", fincolor)           
+    desc = input("")
+    out_dict = {"lang_list": addedlangs, "desc": desc}
+    check["groups"].append(out_dict)
+    fil = open("lang_groups.json", "w")
+    json.dump(check, fil)
+    fil.close()
+    clear()
+    cprint("Successfully added your language group!", fincolor)
+    exit()
+    
 
 
-os.system("cls" if os.name == "nt" else "clear")
+clear()
 cprint("What string of ENGLISH text would you like to start with?", fincolor)
 start = input("")
-os.system("cls" if os.name == "nt" else "clear")
+clear()
 cprint("How many iterations do you want?", fincolor)
 iter = input("")
-os.system("cls" if os.name == "nt" else "clear")
+clear()
 cprint("Would you like to see the english text as it is being translated? (y/N)", fincolor)
 eng_updates = input("").upper()
-os.system("cls" if os.name == "nt" else "clear")
+clear()
 langs = []
 with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
 cprint("Would you like to use Language Groups? (y/N) ", fincolor)
 use_lang_groups = input("").upper()
-os.system("cls" if os.name == "nt" else "clear")
+clear()
 if use_lang_groups == "Y":
     cprint("What Language Group? ", fincolor)
     lang_group_number = input("")
-    os.system("cls" if os.name == "nt" else "clear")
-    cprint("Language Group "+lang_group_number+", Description: "+str(lang_groups[lang_group_number]["desc"])+" (Y/n) ", fincolor)
+    clear()
+    cprint("Language Group "+lang_group_number+", Description: "+lang_groups["groups"][(int(lang_group_number)-1)]["desc"]+" (Y/n) ", fincolor)
     confirm_lang_group = input("").upper()
-    os.system("cls" if os.name == "nt" else "clear")
+    clear()
     if not confirm_lang_group == "N":
-        langs = lang_groups[lang_group_number]["lang_list"] # use the langage group
+        langs = lang_groups["groups"][int(lang_group_number)-1]["lang_list"] # use the langage group
 else:
     langs = base_langs #if not, use the default language group
 def text_refresh(text, lang, j): #refresh the text
     if eng_updates =="Y":
         eng = GoogleTranslator(source="auto", target="en", proxies=proxies).translate(text) #take the text to english
-        os.system("cls" if os.name == "nt" else "clear") #clear, then print
+        clear() #clear, then print
         cprint("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+eng, fincolor)
     else:
-        os.system("cls" if os.name == "nt" else "clear")
+        clear()
         cprint("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+text, fincolor)
 initial =  GoogleTranslator(source="auto", target=r.choice(langs), proxies=proxies).translate(start) #initial text --> 1st translation
 for i in range(int(iter)):
@@ -227,5 +238,5 @@ for i in range(int(iter)):
     initial =  GoogleTranslator(source="auto", target=randlang, proxies=proxies).translate(initial) #do the translate
     text_refresh(initial, randlang, i) #refresh the text
 final = GoogleTranslator(source="auto", target="en", proxies=proxies).translate(initial) #back to english
-os.system("cls" if os.name == "nt" else "clear") 
-print("Final Text: "+final, fincolor) #final output
+clear() 
+cprint("Final Text: "+final, fincolor) #final output
