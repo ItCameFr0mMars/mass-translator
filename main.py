@@ -7,42 +7,6 @@ from termcolor import colored, cprint
 proxies = {
     "http": "5.202.191.226:8080" #only http and https are supported rn. 
 }
-color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
-r.shuffle(color)
-for i in range(len(color)):
-    os.system("cls" if os.name == "nt" else "clear")
-    cprint(
-"""
-\r
-\r
- /$$      /$$                                       /$$$$$$$$                                         /$$             /$$                        
-| $$$    /$$$                                      |__  $$__/                                        | $$            | $$                        
-| $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$$           | $$     /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
-| $$ $$/$$ $$ |____  $$ /$$_____/ /$$_____/           | $$    /$$__  $$ |____  $$| $$__  $$ /$$_____/| $$ |____  $$|_  $$_/   /$$__  $$ /$$__  $$
-| $$  $$$| $$  /$$$$$$$|  $$$$$$ |  $$$$$$            | $$   | $$  \__/  /$$$$$$$| $$  \ $$|  $$$$$$ | $$  /$$$$$$$  | $$    | $$  \ $$| $$  \__/
-| $$\  $ | $$ /$$__  $$ \____  $$ \____  $$           | $$   | $$       /$$__  $$| $$  | $$ \____  $$| $$ /$$__  $$  | $$ /$$| $$  | $$| $$      
-| $$ \/  | $$|  $$$$$$$ /$$$$$$$/ /$$$$$$$/           | $$   | $$      |  $$$$$$$| $$  | $$ /$$$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
-|__/     |__/ \_______/|_______/ |_______/  /$$$$$$   |__/   |__/       \_______/|__/  |__/|_______/ |__/ \_______/   \___/   \______/ |__/      
-                                        |______/                                                                                              
-\r
-\r
-Made By ItCameFr0mMars
-""", ""+color[i]+"")
-    time.sleep(0.5)
-    fincolor = color[i]
-cprint("Press Enter to Continue", fincolor) 
-input("")
-os.system("cls" if os.name == "nt" else "clear")
-cprint("What string of ENGLISH text would you like to start with?", fincolor)
-start = input("")
-os.system("cls" if os.name == "nt" else "clear")
-cprint("How many iterations do you want?", fincolor)
-iter = input("")
-os.system("cls" if os.name == "nt" else "clear")
-cprint("Would you like to see the english text as it is being translated? (y/N)", fincolor)
-eng_updates = input("").upper()
-os.system("cls" if os.name == "nt" else "clear")
-langs = []
 base_langs = [
     "af",
     "sq",
@@ -150,6 +114,88 @@ base_langs = [
     "zh-CN",
     "zh-TW",
     "zu"]
+color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
+r.shuffle(color)
+for i in range(len(color)):
+    os.system("cls" if os.name == "nt" else "clear")
+    cprint(
+"""
+\r
+\r
+ /$$      /$$                                       /$$$$$$$$                                         /$$             /$$                        
+| $$$    /$$$                                      |__  $$__/                                        | $$            | $$                        
+| $$$$  /$$$$  /$$$$$$   /$$$$$$$  /$$$$$$$           | $$     /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+| $$ $$/$$ $$ |____  $$ /$$_____/ /$$_____/           | $$    /$$__  $$ |____  $$| $$__  $$ /$$_____/| $$ |____  $$|_  $$_/   /$$__  $$ /$$__  $$
+| $$  $$$| $$  /$$$$$$$|  $$$$$$ |  $$$$$$            | $$   | $$  \__/  /$$$$$$$| $$  \ $$|  $$$$$$ | $$  /$$$$$$$  | $$    | $$  \ $$| $$  \__/
+| $$\  $ | $$ /$$__  $$ \____  $$ \____  $$           | $$   | $$       /$$__  $$| $$  | $$ \____  $$| $$ /$$__  $$  | $$ /$$| $$  | $$| $$      
+| $$ \/  | $$|  $$$$$$$ /$$$$$$$/ /$$$$$$$/           | $$   | $$      |  $$$$$$$| $$  | $$ /$$$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
+|__/     |__/ \_______/|_______/ |_______/  /$$$$$$   |__/   |__/       \_______/|__/  |__/|_______/ |__/ \_______/   \___/   \______/ |__/      
+                                        |______/                                                                                              
+\r
+\r
+Made By ItCameFr0mMars
+""", ""+color[i]+"")
+    time.sleep(0.5)
+    fincolor = color[i]
+cprint("Type \"H\" for help, enter your command, or Press Enter to Continue", fincolor) 
+menu = input("").upper()
+if menu == "I":
+    cprint("""
+This project was made by ItCameFr0mMars. If you have any questions, email me (mars@mars.tk), or DM me on discord (ItCameFr0mMars#6559). 
+I would appreciate it if you star the repo, and any suggestions can be made on a github issue, or pull request.
+""", fincolor)
+elif menu == "H":
+    cprint("""
+H: Shows this.
+I: Info screen
+C: Create your own Language group
+""", fincolor)
+elif menu == "C":
+    cprint("Warning, you must know the letter codes for each language, they can be found in the supported_languages.json file.", fincolor)
+    print("\r")
+    os.system("cls" if os.name == "nt" else "clear")
+    with open("lang_groups.json") as fil:
+        data = fil.read()
+    check = json.loads(data)
+    for i in range(1000):
+        try:
+            balls = data[str(i)]["desc"]
+        except:
+            group_name = i + 1
+            break
+    addedlangs = []
+    while True:
+        cprint("What language would you like to add? Type \"done\" when you are finished", fincolor)
+        langcheck = input("")
+        os.system("cls" if os.name == "nt" else "clear")
+        proceed = True
+        if langcheck == "done":
+            break
+        if langcheck not in base_langs:
+            cprint("its not in the list bro.", fincolor)
+            time.sleep(1)
+            os.system("cls" if os.name == "nt" else "clear")
+            proceed = False
+        if proceed == True and langcheck in addedlangs:
+            cprint("Your language is already in the list", fincolor)
+            time.sleep(1)
+            os.system("cls" if os.name == "nt" else "clear")
+            proceed = False
+        addedlangs.append(langcheck)
+    cprint(addedlangs, fincolor)           
+
+
+os.system("cls" if os.name == "nt" else "clear")
+cprint("What string of ENGLISH text would you like to start with?", fincolor)
+start = input("")
+os.system("cls" if os.name == "nt" else "clear")
+cprint("How many iterations do you want?", fincolor)
+iter = input("")
+os.system("cls" if os.name == "nt" else "clear")
+cprint("Would you like to see the english text as it is being translated? (y/N)", fincolor)
+eng_updates = input("").upper()
+os.system("cls" if os.name == "nt" else "clear")
+langs = []
 with open("lang_groups.json") as f: #load from text file
     data = f.read()
 lang_groups = json.loads(data)
@@ -171,10 +217,10 @@ def text_refresh(text, lang, j): #refresh the text
     if eng_updates =="Y":
         eng = GoogleTranslator(source="auto", target="en", proxies=proxies).translate(text) #take the text to english
         os.system("cls" if os.name == "nt" else "clear") #clear, then print
-        print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+eng)
+        cprint("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+eng, fincolor)
     else:
         os.system("cls" if os.name == "nt" else "clear")
-        print("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+text)
+        cprint("Language: "+lang.upper()+"       Iterations: "+str(j+1)+"/"+iter+"      Text: "+text, fincolor)
 initial =  GoogleTranslator(source="auto", target=r.choice(langs), proxies=proxies).translate(start) #initial text --> 1st translation
 for i in range(int(iter)):
     randlang = r.choice(langs) #choose lang
@@ -182,4 +228,4 @@ for i in range(int(iter)):
     text_refresh(initial, randlang, i) #refresh the text
 final = GoogleTranslator(source="auto", target="en", proxies=proxies).translate(initial) #back to english
 os.system("cls" if os.name == "nt" else "clear") 
-print("Final Text: "+final) #final output
+print("Final Text: "+final, fincolor) #final output
