@@ -3,7 +3,7 @@ import random as r
 import os
 import json
 import time
-from termcolor import colored, cprint\
+from termcolor import colored, cprint
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
