@@ -25,6 +25,8 @@ base_langs = [
     "ca",
     "ceb",
     "ny",
+    "zh-CN",
+    "zh-TW",
     "co",
     "hr",
     "cs",
@@ -59,6 +61,7 @@ base_langs = [
     "kn",
     "kk",
     "km",
+    "rw",
     "ko",
     "ku",
     "ky",
@@ -102,9 +105,11 @@ base_langs = [
     "sv",
     "tg",
     "ta",
+    "tt",
     "te",
     "th",
     "tr",
+    "tk",
     "uk",
     "ur",
     "ug",
@@ -114,9 +119,7 @@ base_langs = [
     "xh",
     "yi",
     "yo",
-    "zh-CN",
-    "zh-TW",
-    "zu"]
+    "zu"
 color = ['red', 'green', 'yellow', 'blue', 'magenta', 'cyan']
 r.shuffle(color)
 for i in range(len(color)):
