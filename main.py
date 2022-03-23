@@ -5,6 +5,7 @@ import json
 import time
 from termcolor import colored, cprint
 import requests
+import pyperclip
 
 def clear(): #clear screen funtion
     os.system("cls" if os.name == "nt" else "clear")
@@ -159,6 +160,7 @@ elif menu == "H":
 H: Shows this.
 I: Info screen
 C: Create your own Language group
+F: Load text from a file
 """, fincolor)
     input("")
 elif menu == "C":
@@ -197,15 +199,25 @@ elif menu == "C":
     clear()
     cprint("Successfully added your language group!", fincolor)
     exit()
-    
+elif menu == "F":
+    cprint("What is the name of your text file?", fincolor)
+    filename = input("")
+    try: inputfile = open(filename, "r")
+    except: cprint("Your filename is incorrect. Please make sure it is in the same directory as this main.py file.", fincolor), exit()
+    start = inputfile.read()
+    inputfile.close()
 
 
 clear()
-cprint("What string of ENGLISH text would you like to start with?", fincolor)
-start = input("")
-if start == "godsays": #get the text from funny website
-    t = requests.get("https://godsays.xyz")
-    start = t.text
+if menu == "F":
+    cprint("Using text loaded from "+filename, fincolor)
+    time.sleep(1)
+else:    
+    cprint("What string of ENGLISH text would you like to start with?", fincolor)
+    start = input("")
+    if start == "godsays": #get the text from funny website
+        t = requests.get("https://godsays.xyz")
+        start = t.text
 clear()
 cprint("How many iterations do you want?", fincolor)
 iter = input("")
@@ -247,3 +259,5 @@ for i in range(int(iter)):
 final = GoogleTranslator(source="auto", target="en", proxies=proxies).translate(initial) #back to english
 clear() 
 cprint("Final Text: "+final, fincolor) #final output
+try: pyperclip.copy(final)
+except: pass
